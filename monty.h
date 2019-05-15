@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -34,11 +35,17 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-extern char *opcode_g;
+typedef struct help_s
+{
+	FILE *fp;
+	char *opcode_g;
+} help_t;
+
+typedef stack_t dlistint_t;
+extern help_t *main_s;
 
 void file_err(char *);
 void malloc_fail();
-void push_no_arg(unsigned int);
 void invalid_code(unsigned int, char *);
 void push_o(stack_t **, unsigned int);
 void pall_o(stack_t **, unsigned int);
@@ -47,11 +54,12 @@ void pop_o(stack_t **, unsigned int);
 void swap_o(stack_t **, unsigned int);
 void add_o(stack_t **, unsigned int);
 void nop_o(stack_t **, unsigned int);
-void main_loop(stack_t **, FILE *, instruction_t *);
+void main_loop(stack_t **, instruction_t *);
+void free_stuff(stack_t *);
 
-int push(stack_t **, int);
-int pop(stack_t **);
-int print_top(stack_t *);
-int print_stack(stack_t *);
+size_t print_dlistint(const dlistint_t *h);
+void free_dlistint(dlistint_t *head);
+int delete_dnodeint_head(dlistint_t **head);
+dlistint_t *add_dnodeint(dlistint_t **head, const int n);
 
 #endif /* MONTY_H */
