@@ -1,5 +1,7 @@
 #include "monty.h"
 
+help_t *main_s = NULL;
+
 /**
  * main - entry point
  * @ac: number of arguments
@@ -20,14 +22,14 @@ int main(int ac, char **av)
 		{NULL, NULL}
 	};
 	stack_t *stack = NULL;
-	FILE *fp;
-
 	if (ac != 2)
 		file_err(NULL);
-	fp = fopen(av[1], "r");
-	if (!fp)
+	main_s = malloc(sizeof(help_t));
+	if (!main_s)
+		return (0);
+	main_s->fp = fopen(av[1], "r");
+	if (!main_s->fp)
 		file_err(av[1]);
-	main_loop(&stack, fp, coms);
-	fclose(fp);
+	main_loop(&stack, coms);
 	return 1;
 }
