@@ -21,3 +21,27 @@ void pchar_o(stack_t **stack, unsigned int line_number)
 	}
 	printf("%c\n", (*stack)->n);
 }
+
+/**
+ * stack_o - functions implements 'stack' opcode
+ * @stack: head of stack
+ * @line_number: current line number in file
+ */
+void stack_o(stack_t **stack, unsigned int line_number)
+{
+	(void)stack;
+	(void)line_number;
+	main_s->data = 1;
+}
+
+/**
+ * queue_o - function implements 'queue' opcode
+ * @stack: head of stack
+ * @line_number: current line number in file
+ */
+void queue_o(stack_t **stack, unsigned int line_number)
+{
+	(void)stack;
+	(void)line_number;
+	main_s->data = 0;
+}
