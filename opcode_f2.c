@@ -52,6 +52,8 @@ void sub_o(stack_t **stack, unsigned int line_number)
  */
 void div_o(stack_t **stack, unsigned int line_number)
 {
+	if (!stack)
+		return;
 	if (dlistint_len(*stack) < 2)
 	{
 		dprintf(2, "L%d: can't div, stack too short\n", line_number);
@@ -64,7 +66,7 @@ void div_o(stack_t **stack, unsigned int line_number)
 		free_stuff();
 		exit(EXIT_FAILURE);
 	}
-	(*stack)->next->n = (*stack)->n / (*stack)->next->n;
+	(*stack)->next->n = (*stack)->next->n / (*stack)->n;
 	delete_dnodeint_head(stack);
 }
 
