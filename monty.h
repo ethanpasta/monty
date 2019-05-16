@@ -52,6 +52,7 @@ extern help_t *main_s;
 void file_err(char *);
 void malloc_fail(stack_t *);
 void push_o(stack_t **, unsigned int);
+int isnum(char *);
 void pall_o(stack_t **, unsigned int);
 void pint_o(stack_t **, unsigned int);
 void pop_o(stack_t **, unsigned int);
