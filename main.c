@@ -26,6 +26,7 @@ int main(int ac, char **av)
 		{"pstr", pstr_o},
 		{"rotl", rotl_o},
 		{"pchar", pchar_o},
+		{"rotr", rotr_o},
 		{NULL, NULL}
 	};
 
