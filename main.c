@@ -29,6 +29,7 @@ int main(int ac, char **av)
 	main_s->fp = fopen(av[1], "r");
 	if (!main_s->fp)
 		file_err(av[1]);
+	main_s->push_n = NULL;
 	main_loop(&stack, coms);
 	return (0);
 }
