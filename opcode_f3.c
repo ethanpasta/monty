@@ -79,6 +79,26 @@ void rotl_o(stack_t **stack, unsigned int line_number)
  */
 void rotr_o(stack_t **stack, unsigned int line_number)
 {
-	(void)stack;
-	(void)line_number;
+	int first;
+	stack_t *tmp;
+
+	if (!stack)
+		return;
+	if (dlistint_len(*stack) < 2)
+		return;
+	else if (dlistint_len(*stack) == 2)
+	{
+		swap_o(stack, line_number);
+		return;
+	}
+	tmp = *stack;
+	while (tmp->next)
+		tmp = tmp->next;
+	first = tmp->n;
+	while (tmp->prev)
+	{
+		tmp->n = tmp->prev->n;
+		tmp = tmp->prev;
+	}
+	tmp->n = first;
 }
