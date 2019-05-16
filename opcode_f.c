@@ -21,7 +21,10 @@ void push_o(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	n = atoi(num);
-	add_dnodeint(stack, n);
+	if (main_s->data)
+		add_dnodeint(stack, n);
+	else
+		add_dnodeint_end(stack, n);
 }
 
 /**
