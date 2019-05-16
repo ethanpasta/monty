@@ -17,6 +17,8 @@ void main_loop(instruction_t coms[])
 		tok = strtok(main_s->buff, " ");
 		if (strcmp(main_s->buff, "\n") == 0 || strcmp(tok, "\n") == 0)
 			continue;
+		if (tok[0] == '#')
+			continue;
 		if (strchr(tok, '\n'))
 			tok = strtok(tok, "\n");
 		if (strcmp(tok, "push") == 0)
