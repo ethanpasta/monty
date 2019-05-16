@@ -51,12 +51,18 @@ void pstr_o(stack_t **stack, unsigned int line_number)
 void rotl_o(stack_t **stack, unsigned int line_number)
 {
 	int first;
-	stack_t *tmp = *stack;
+	stack_t *tmp;
 
-	if (!*stack)
+	if (!stack)
 		return;
-	if (dlistint_len(*stack) == 2)
+	if (dlistint_len(*stack) < 2)
+		return;
+	else if (dlistint_len(*stack) == 2)
+	{
 		swap_o(stack, line_number);
+		return;
+	}
+	tmp = *stack;
 	first = tmp->n;
 	while (tmp->next)
 	{
