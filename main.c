@@ -19,17 +19,18 @@ int main(int ac, char **av)
 		{"swap", swap_o},
 		{NULL, NULL}
 	};
-	stack_t *stack = NULL;
 
 	if (ac != 2)
 		file_err(NULL);
 	main_s = malloc(sizeof(help_t));
 	if (!main_s)
-		malloc_fail(stack);
+		malloc_fail();
 	main_s->fp = fopen(av[1], "r");
 	if (!main_s->fp)
 		file_err(av[1]);
 	main_s->push_n = NULL;
-	main_loop(&stack, coms);
+	main_s->buff = NULL;
+	main_s->stack_s = NULL;
+	main_loop(coms);
 	return (0);
 }
