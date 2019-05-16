@@ -29,6 +29,7 @@ void main_loop(stack_t **stack, instruction_t coms[])
 			free(buffer);
 			buffer = NULL;
 			push_o(stack, line_n);
+			line_n++;
 			continue;
 		}
 		if (!execute_command(stack, tok, line_n, coms))
