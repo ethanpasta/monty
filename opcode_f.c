@@ -14,13 +14,11 @@ void push_o(stack_t **stack, unsigned int line_number)
 		num = strtok(num, "\n");
 	if (!num || !isnum(num))
 	{
-		free_stuff(*stack);
+		free_stuff();
 		dprintf(2, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	n = atoi(num);
-	free(main_s->push_n);
-	main_s->push_n = NULL;
 	add_dnodeint(stack, n);
 }
 
@@ -45,7 +43,7 @@ void pint_o(stack_t **stack, unsigned int line_number)
 	if (!*stack)
 	{
 		dprintf(2, "L%d can't pint, stack empty\n", line_number);
-		free_stuff(*stack);
+		free_stuff();
 		exit(EXIT_FAILURE);
 	}
 	printf("%d\n", (*stack)->n);
@@ -61,7 +59,7 @@ void pop_o(stack_t **stack, unsigned int line_number)
 	if (!*stack)
 	{
 		dprintf(2, "L%d: can't pop an empty stack\n", line_number);
-		free_stuff(*stack);
+		free_stuff();
 		exit(EXIT_FAILURE);
 	}
 	delete_dnodeint_head(stack);
@@ -79,7 +77,7 @@ void swap_o(stack_t **stack, unsigned int line_number)
 	if (dlistint_len(*stack) < 2)
 	{
 		dprintf(2, "L%d: can't swap, stack too short\n", line_number);
-		free_stuff(*stack);
+		free_stuff();
 		exit(EXIT_FAILURE);
 	}
 	tmp = (*stack)->next->n;
