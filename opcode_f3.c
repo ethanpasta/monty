@@ -7,6 +7,8 @@
  */
 void mod_o(stack_t **stack, unsigned int line_number)
 {
+	if (!stack)
+		return;
 	if (dlistint_len(*stack) < 2)
 	{
 		dprintf(2, "L%d: can't mod, stack too short\n", line_number);
