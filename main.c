@@ -27,6 +27,8 @@ int main(int ac, char **av)
 		{"rotl", rotl_o},
 		{"pchar", pchar_o},
 		{"rotr", rotr_o},
+		{"stack", stack_o},
+		{"queue", queue_o},
 		{NULL, NULL}
 	};
 
@@ -44,6 +46,7 @@ int main(int ac, char **av)
 	main_s->push_n = NULL;
 	main_s->buff = NULL;
 	main_s->stack_s = NULL;
+	main_s->data = 1;
 	main_loop(coms);
 	return (0);
 }
