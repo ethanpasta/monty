@@ -64,6 +64,8 @@ void swap_o(stack_t **, unsigned int);
 void add_o(stack_t **, unsigned int);
 void nop_o(stack_t **, unsigned int);
 void sub_o(stack_t **, unsigned int);
+void div_o(stack_t **, unsigned int);
+void mul_o(stack_t **, unsigned int);
 
 void main_loop(instruction_t *);
 void free_stuff(void);
