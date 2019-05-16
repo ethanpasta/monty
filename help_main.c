@@ -15,7 +15,7 @@ void main_loop(stack_t **stack, instruction_t coms[])
 	while (getline(&buffer, &buff_s, main_s->fp) != -1)
 	{
 		tok = strtok(buffer, " ");
-		if (strcmp(buffer, "\n") == 0)
+		if (strcmp(buffer, "\n") == 0 || strcmp(tok, "\n") == 0)
 		{
 			line_n++;
 			continue;
