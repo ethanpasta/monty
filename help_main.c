@@ -24,7 +24,6 @@ void main_loop(stack_t **stack, instruction_t coms[])
 			tok = strtok(tok, "\n");
 		if (strcmp(tok, "push") == 0)
 		{
-			main_s->opcode_g = tok;
 			tok = strtok(NULL, " ");
 			main_s->push_n = tok;
 			push_o(stack, line_n);
@@ -33,7 +32,6 @@ void main_loop(stack_t **stack, instruction_t coms[])
 		if (!execute_command(stack, tok, line_n, coms))
 		{
 			free(buffer);
-			main_s->opcode_g = NULL;
 			free_stuff(*stack);
 			exit(EXIT_FAILURE);
 		}
@@ -42,7 +40,6 @@ void main_loop(stack_t **stack, instruction_t coms[])
 		buffer = NULL;
 	}
 	free(buffer);
-	main_s->opcode_g = NULL;
 	free_stuff(*stack);
 }
 
@@ -79,7 +76,5 @@ void free_stuff(stack_t *stack)
 {
 	fclose(main_s->fp);
 	free_dlistint(stack);
-	if (main_s->opcode_g)
-		free(main_s->opcode_g);
 	free(main_s);
 }
