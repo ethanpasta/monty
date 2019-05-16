@@ -20,6 +20,8 @@ int main(int ac, char **av)
 		{"add", add_o},
 		{"nop", nop_o},
 		{"sub", sub_o},
+		{"div", div_o},
+		{"mul", mul_o},
 		{NULL, NULL}
 	};
 
