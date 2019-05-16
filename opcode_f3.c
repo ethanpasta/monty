@@ -48,14 +48,29 @@ void pstr_o(stack_t **stack, unsigned int line_number)
  */
 void rotl_o(stack_t **stack, unsigned int line_number)
 {
+	int first;
 	stack_t *tmp = *stack;
 
 	if (!*stack)
 		return;
 	if (dlistint_len(*stack) == 2)
 		swap_o(stack, line_number);
+	first = tmp->n;
 	while (tmp->next)
+	{
+		tmp->n = tmp->next->n;
 		tmp = tmp->next;
-	(*stack)->next->n = (*stack)->n;
-	(*stack)->n = tmp->n;
+	}
+	tmp->n = first;
+}
+
+/**
+ * rotr_o - function implements the 'rotr' opcode
+ * @stack: head of stack
+ * @line_number: current line number in file
+ */
+void rotr_o(stack_t **stack, unsigned int line_number)
+{
+	(void)stack;
+	(void)line_number;
 }
