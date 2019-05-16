@@ -9,7 +9,7 @@ void add_o(stack_t **stack, unsigned int line_number)
 {
 	if (dlistint_len(*stack) < 2)
 	{
-		printf("L%d: can't add, stack too short\n", line_number);
+		dprintf(2, "L%d: can't add, stack too short\n", line_number);
 		free_stuff();
 		exit(EXIT_FAILURE);
 	}
@@ -37,10 +37,44 @@ void sub_o(stack_t **stack, unsigned int line_number)
 {
 	if (dlistint_len(*stack) < 2)
 	{
-		printf("L%d: can't sub, stack too short\n", line_number);
+		dprintf(2, "L%d: can't sub, stack too short\n", line_number);
 		free_stuff();
 		exit(EXIT_FAILURE);
 	}
 	(*stack)->next->n = (*stack)->next->n - (*stack)->n;
+	delete_dnodeint_head(stack);
+}
+
+/**
+ * div_o - function implements the 'div' opcode
+ * @stack: head of stack
+ * @line_number: current line number in file
+ */
+void div_o(stack_t **stack, unsigned int line_number)
+{
+	if (dlistint_len(*stack) < 2)
+	{
+		dprintf(2, "L%d: can't div, stack too short\n", line_number);
+		free_stuff();
+		exit(EXIT_FAILURE);
+	}
+	(*stack)->next->n = (*stack)->n / (*stack)->next->n;
+	delete_dnodeint_head(stack);
+}
+
+/**
+ * mul_o - function implements the 'mul' opcode
+ * @stack: head of stack
+ * @line_number: current line number in file
+ */
+void mul_o(stack_t **stack, unsigned int line_number)
+{
+	if (dlistint_len(*stack) < 2)
+	{
+		dprintf(2, "L%d: can't mul, stack too short\n", line_number);
+		free_stuff();
+		exit(EXIT_FAILURE);
+	}
+	(*stack)->next->n = (*stack)->n * (*stack)->next->n;
 	delete_dnodeint_head(stack);
 }
