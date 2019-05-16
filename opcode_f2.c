@@ -10,6 +10,8 @@ int isnum(char *str)
 {
 	int i;
 
+	if (str[0] == '-')
+		str++;
 	for (i = 0; str[i]; i++)
 		if (!isdigit(str[i]))
 			return (0);
