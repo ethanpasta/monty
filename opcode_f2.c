@@ -77,6 +77,8 @@ void div_o(stack_t **stack, unsigned int line_number)
  */
 void mul_o(stack_t **stack, unsigned int line_number)
 {
+	if (!stack)
+		return;
 	if (dlistint_len(*stack) < 2)
 	{
 		dprintf(2, "L%d: can't mul, stack too short\n", line_number);
