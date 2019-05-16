@@ -10,7 +10,7 @@ void push_o(stack_t **stack, unsigned int line_number)
 	int n;
 	char *num = main_s->push_n;
 
-	if (strchr(num, '\n'))
+	if (num && strchr(num, '\n'))
 		num = strtok(num, "\n");
 	if (!num || !isnum(num))
 	{
