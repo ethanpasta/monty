@@ -30,5 +30,5 @@ int main(int ac, char **av)
 	if (!main_s->fp)
 		file_err(av[1]);
 	main_loop(&stack, coms);
-	return (1);
+	return (0);
 }
