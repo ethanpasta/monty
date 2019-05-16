@@ -17,8 +17,6 @@ int main(int ac, char **av)
 		{"pint", pint_o},
 		{"pop", pop_o},
 		{"swap", swap_o},
-		{"add", add_o},
-		{"nop", nop_o},
 		{NULL, NULL}
 	};
 	stack_t *stack = NULL;
@@ -27,7 +25,7 @@ int main(int ac, char **av)
 		file_err(NULL);
 	main_s = malloc(sizeof(help_t));
 	if (!main_s)
-		return (0);
+		malloc_fail(stack);
 	main_s->fp = fopen(av[1], "r");
 	if (!main_s->fp)
 		file_err(av[1]);
