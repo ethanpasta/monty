@@ -19,12 +19,11 @@ void file_err(char *file)
 
 /**
  * malloc_fail - function takes care of error that occurs with malloc
- * @h: stack data type
  *
  */
-void malloc_fail(stack_t *h)
+void malloc_fail(void)
 {
 	dprintf(2, "Error: malloc failed\n");
-	free_stuff(h);
+	free_stuff();
 	exit(EXIT_FAILURE);
 }
