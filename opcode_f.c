@@ -10,13 +10,17 @@ void push_o(stack_t **stack, unsigned int line_number)
 	int n;
 	char *num = main_s->push_n;
 
-	if (!num || !isdigit(num[0]))
+	if (strchr(num, '\n'))
+		num = strtok(num, "\n");
+	if (!num || !isnum(num))
 	{
 		free_stuff(*stack);
 		dprintf(2, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	n = atoi(num);
+	free(main_s->push_n);
+	main_s->push_n = NULL;
 	add_dnodeint(stack, n);
 }
 
