@@ -25,6 +25,7 @@ int main(int ac, char **av)
 		{"mod", mod_o},
 		{"pstr", pstr_o},
 		{"rotl", rotl_o},
+		{"pchar", pchar_o},
 		{NULL, NULL}
 	};
 
