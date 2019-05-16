@@ -9,10 +9,10 @@ void file_err(char *file)
 {
 	if (!file)
 	{
-		printf("USAGE: monty file\n");
+		dprintf(2, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-	printf("Error: Can't open file %s\n", file);
+	dprintf(2, "Error: Can't open file %s\n", file);
 	free(main_s);
 	exit(EXIT_FAILURE);
 }
@@ -24,7 +24,7 @@ void file_err(char *file)
  */
 void malloc_fail(stack_t *h)
 {
-	printf("Error: malloc failed\n");
+	dprintf(2, "Error: malloc failed\n");
 	free_stuff(h);
 	exit(EXIT_FAILURE);
 }
