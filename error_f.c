@@ -1,5 +1,10 @@
 #include "monty.h"
 
+/**
+ * file_err - function takes care of error that occurs with the file
+ * @file: name of the file inputed
+ *
+ */
 void file_err(char *file)
 {
 	if (!file)
@@ -12,18 +17,13 @@ void file_err(char *file)
 	exit(EXIT_FAILURE);
 }
 
-void malloc_fail()
+/**
+ * malloc_fail - function takes care of error that occurs with malloc
+ *
+ */
+void malloc_fail(void)
 {
 	printf("Error: malloc failed\n");
 
-	exit(EXIT_FAILURE);
-}
-
-void invalid_code(unsigned int line_n, char *opcode)
-{
-	printf("L%u: unknown instruction %s", line_n, opcode);
-	free(main_s->opcode_g);
-	fclose(main_s->fp);
-	free(main_s);
 	exit(EXIT_FAILURE);
 }

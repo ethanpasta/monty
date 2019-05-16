@@ -22,6 +22,7 @@ int main(int ac, char **av)
 		{NULL, NULL}
 	};
 	stack_t *stack = NULL;
+
 	if (ac != 2)
 		file_err(NULL);
 	main_s = malloc(sizeof(help_t));
@@ -31,5 +32,5 @@ int main(int ac, char **av)
 	if (!main_s->fp)
 		file_err(av[1]);
 	main_loop(&stack, coms);
-	return 1;
+	return (1);
 }

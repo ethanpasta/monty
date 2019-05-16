@@ -84,3 +84,19 @@ int delete_dnodeint_head(dlistint_t **head)
 	free(tmp);
 	return (1);
 }
+
+/**
+ * dlistint_len - function returns the number of elements in a linked
+ * dlistint_t list
+ * @h: head of list
+ *
+ * Return: number of nodes
+ */
+size_t dlistint_len(const dlistint_t *h)
+{
+	size_t len;
+
+	for (len = 0; h; len++)
+		h = h->next;
+	return (len);
+}
