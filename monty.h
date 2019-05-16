@@ -38,13 +38,11 @@ typedef struct instruction_s
 /**
  * struct help_s - helper struct to use with one external variable
  * @fp: file descriptor
- * @opcode_g: command found in current line of file
  * @push_n: value to push
  */
 typedef struct help_s
 {
 	FILE *fp;
-	char *opcode_g;
 	char *push_n;
 } help_t;
 

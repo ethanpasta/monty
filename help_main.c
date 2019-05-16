@@ -25,21 +25,28 @@ void main_loop(stack_t **stack, instruction_t coms[])
 		if (strcmp(tok, "push") == 0)
 		{
 			tok = strtok(NULL, " ");
-			main_s->push_n = tok;
+			main_s->push_n = strdup(tok);
+			free(buffer);
+			buffer = NULL;
 			push_o(stack, line_n);
 			continue;
 		}
 		if (!execute_command(stack, tok, line_n, coms))
 		{
 			free(buffer);
+			buffer = NULL;
 			free_stuff(*stack);
 			exit(EXIT_FAILURE);
 		}
 		line_n++;
-		free(buffer);
-		buffer = NULL;
+		if (buffer)
+		{
+			free(buffer);
+			buffer = NULL;
+		}
 	}
-	free(buffer);
+	if (buffer)
+		free(buffer);
 	free_stuff(*stack);
 }
 
@@ -75,6 +82,8 @@ int execute_command(stack_t **s, char *tok, int l, instruction_t t[])
 void free_stuff(stack_t *stack)
 {
 	fclose(main_s->fp);
+	if (main_s->push_n)
+		free(main_s->push_n);
 	free_dlistint(stack);
 	free(main_s);
 }
