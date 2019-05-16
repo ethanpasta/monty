@@ -52,7 +52,7 @@ typedef stack_t dlistint_t;
 extern help_t *main_s;
 
 void file_err(char *);
-void malloc_fail(void);
+void malloc_fail(stack_t *);
 void push_o(stack_t **, unsigned int);
 void pall_o(stack_t **, unsigned int);
 void pint_o(stack_t **, unsigned int);
