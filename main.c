@@ -32,7 +32,10 @@ int main(int ac, char **av)
 		file_err(NULL);
 	main_s = malloc(sizeof(help_t));
 	if (!main_s)
-		malloc_fail();
+	{
+		dprintf(2, "Error: malloc failed\n");
+		exit(EXIT_FAILURE);
+	}
 	main_s->fp = fopen(av[1], "r");
 	if (!main_s->fp)
 		file_err(av[1]);
