@@ -70,6 +70,7 @@ void mod_o(stack_t **, unsigned int);
 void pstr_o(stack_t **, unsigned int);
 void rotl_o(stack_t **, unsigned int);
 void pchar_o(stack_t **, unsigned int);
+void rotr_o(stack_t **, unsigned int);
 
 void main_loop(instruction_t *);
 void free_stuff(void);
