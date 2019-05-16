@@ -39,18 +39,22 @@ typedef struct instruction_s
  * struct help_s - helper struct to use with one external variable
  * @fp: file descriptor
  * @push_n: value to push
+ * @buff: buffer for getline
+ * @stack_s: pointer to local stack
  */
 typedef struct help_s
 {
 	FILE *fp;
 	char *push_n;
+	char *buff;
+	stack_t *stack_s;
 } help_t;
 
 typedef stack_t dlistint_t;
 extern help_t *main_s;
 
 void file_err(char *);
-void malloc_fail(stack_t *);
+void malloc_fail(void);
 void push_o(stack_t **, unsigned int);
 int isnum(char *);
 void pall_o(stack_t **, unsigned int);
@@ -59,9 +63,9 @@ void pop_o(stack_t **, unsigned int);
 void swap_o(stack_t **, unsigned int);
 void add_o(stack_t **, unsigned int);
 void nop_o(stack_t **, unsigned int);
-void main_loop(stack_t **, instruction_t *);
-void free_stuff(stack_t *);
-int execute_command(stack_t **, char *, int, instruction_t []);
+void main_loop(instruction_t *);
+void free_stuff(void);
+int execute_command(char *, int, instruction_t []);
 
 size_t print_dlistint(const dlistint_t *h);
 void free_dlistint(dlistint_t *head);
