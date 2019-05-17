@@ -30,7 +30,7 @@ gcc -Wall -Werror -Wextra -pedantic *.c -o monty
 You should now have a `monty` executable file.
 
 ## Usage
-`./monty file` where `file` is the path to the file containing Monty byte code
+`./monty file` where `file` is the path to the file containing Monty byte code.
 
 The monty program runs the bytecodes line by line and stops if either:
  - It executed properly every line of the file
@@ -59,7 +59,7 @@ The monty program runs the bytecodes line by line and stops if either:
 |  queue  |                                                                       Sets the format of the data to a queue (FIFO)                                                                      | [opcode_f4.c](https://github.com/ethanpasta/monty/blob/master/opcode_f4.c) |
 
 ## Examples
-1. push, sub, pall
+### 1. push, sub, pall
 
 #### byte.m
 ```
@@ -77,7 +77,7 @@ pall
 1
 ```
 
-2. push, pstr
+### 2. push, pstr
 #### byte.m
 ```
 push 1
@@ -106,4 +106,5 @@ Holberton
 ### Comments
 If the first non-whitespace character of a line is `#`, this line is skipped.
 
-* **Ethan Mayer** - [ethanpasta](https://github.com/ethanpasta)
+## Author
+**Ethan Mayer** - [ethanpasta](https://github.com/ethanpasta)
