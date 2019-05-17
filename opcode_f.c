@@ -12,6 +12,7 @@ void push_o(stack_t **stack, unsigned int line_number)
 
 	if (!stack)
 		return;
+	/* check if number contains \n, if it does don't include it */
 	if (num && strchr(num, '\n'))
 		num = strtok(num, "\n");
 	if (!num || !isnum(num))
@@ -21,6 +22,7 @@ void push_o(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	n = atoi(num);
+	/* check if data type is a queue or a stack */
 	if (main_s->data)
 		add_dnodeint(stack, n);
 	else

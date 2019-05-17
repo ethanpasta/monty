@@ -10,6 +10,7 @@ int isnum(char *str)
 {
 	int i;
 
+	/* check if number is negative (begins with a dash) */
 	if (str[0] == '-')
 		str++;
 	for (i = 0; str[i]; i++)
