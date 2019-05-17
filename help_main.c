@@ -14,10 +14,10 @@ void main_loop(instruction_t coms[])
 	while (getline(&(main_s->buff), &buff_s, main_s->fp) != -1)
 	{
 		line_n++;
-		/* parse line using spaces */
-		tok = strtok(main_s->buff, " ");
+		/* parse line using spaces, tabs, newlines */
+		tok = strtok(main_s->buff, " \t\n");
 		/* check if line is empty, or a comment */
-		if (!strcmp(main_s->buff, "\n") || !strcmp(tok, "\n"))
+		if (!tok)
 			continue;
 		if (tok[0] == '#')
 			continue;
