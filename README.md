@@ -18,13 +18,24 @@ pall
 ```
 Monty byte code files can contain blank lines (empty or made of spaces only, and any additional text after the opcode or its required argument is not taken into account.
 
+## Installation
+First, clone this repository onto your local machine using:
+```
+git clone https://github.com/ethanpasta/monty.git
+```
+After `cd`ing into the directory, compile all files with:
+```
+gcc -Wall -Werror -Wextra -pedantic *.c -o monty
+```
+You should now have a `monty` executable file.
+
 ## Usage
 `./monty file` where `file` is the path to the file containing Monty byte code
 
 The monty program runs the bytecodes line by line and stops if either:
- - it executed properly every line of the file
- - it finds an error in the file
- - an error occured
+ - It executed properly every line of the file
+ - It finds an error in the file
+ - An error occured
 
 ## Commands
 | Command |                                                                                        Description                                                                                       |                                    File                                    |
@@ -45,7 +56,54 @@ The monty program runs the bytecodes line by line and stops if either:
 |   rotl  |                                                                               Rotates the stack to the top                                                                               | [opcode_f3.c](https://github.com/ethanpasta/monty/blob/master/opcode_f3.c) |
 |   rotr  |                                                                              Rotates the stack to the bottom                                                                             | [opcode_f3.c](https://github.com/ethanpasta/monty/blob/master/opcode_f3.c) |
 |  stack  |                                                Sets the format of the data to a stack (LIFO). This is the default behavior of the program                                                | [opcode_f4.c](https://github.com/ethanpasta/monty/blob/master/opcode_f4.c) |
-|  queue  |                                                                       Sets the format of the data to a queue (FIFO)                                                                      |                                                                            |
+|  queue  |                                                                       Sets the format of the data to a queue (FIFO)                                                                      | [opcode_f4.c](https://github.com/ethanpasta/monty/blob/master/opcode_f4.c) |
 
-## Author
+## Examples
+1. push, sub, pall
+
+#### byte.m
+```
+push 1
+push 2
+push 10
+push 3
+sub
+pall
+```
+#### Output
+```
+7
+2
+1
+```
+
+2. push, pstr
+#### byte.m
+```
+push 1
+push 2
+push 3
+push 4
+push 0
+push 110
+push 0
+push 110
+push 111
+push 116
+push 114
+push 101
+push 98
+push 108
+push 111
+push 72
+pstr
+```
+#### Output
+```
+Holberton
+```
+
+### Comments
+If the first non-whitespace character of a line is `#`, this line is skipped.
+
 * **Ethan Mayer** - [ethanpasta](https://github.com/ethanpasta)
